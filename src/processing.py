@@ -8,7 +8,7 @@ my_list_dict = [
 ]
 
 
-def filter_by_state(my_list_dict: list[dict[str, Any]], state: str = "EXECUTED") -> list:
+def filter_by_state(my_list_dict: list[dict[str, Any]], state: str = "EXECUTED") -> list[dict[str, Any]]:
     """Функция принимает список словарей и значение для ключа и возвращает новый
     список содержащий только те словари у которых ключ содержит переданное значение"""
 
