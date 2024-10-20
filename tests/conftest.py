@@ -1,65 +1,32 @@
+from typing import Any
 import pytest
 
 
-"""Фикстуры и переменные для test_processing"""
+@pytest.fixture
+def mask_card() -> Any:
+    return "7000792289606361", "7365410843013587", "7000F922896S6361", "7000792289606361627911", ""
 
 
-my_list_dict_all_canceled = [
-    {"id": 41428829, "state": "CANCELED", "date": "2019-07-03T18:35:29.512364"},
-    {"id": 939719570, "state": "CANCELED", "date": "2018-06-30T02:08:58.425572"},
-    {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-    {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-]
+@pytest.fixture
+def mask_account() -> Any:
+    return "73654108430135874305", "7000792289606361627911", "73654108430135874305DXK", "135"
 
 
-my_list_dict_executed = [
-    {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-    {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-]
+@pytest.fixture
+def mask_account_card_change() -> Any:
+    return "Счет 63829169283549154926", "Visa Platinun 7008792289606361", "Счет 82739465720374638254"
 
 
-my_list_dict_canceled = [
-    {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-    {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-]
+@pytest.fixture
+def mask_account_card_change_type() -> Any:
+    return "Счет 63829169283549154926", "Maestro 7008792289606361", "Счет 82739465720374638254"
 
 
-my_list_dict_no_state = [
-    {"id": 41428829, "date": "2019-07-03T18:35:29.512364"},
-    {"id": 939719570, "date": "2018-06-30T02:08:58.425572"},
-    {"id": 594226727, "date": "2018-09-12T21:27:25.241689"},
-    {"id": 615064591, "date": "2018-10-14T08:21:33.419441"},
-]
-
-my_list_dict_sorted_1 = [
-    {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-    {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-    {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-    {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-]
+@pytest.fixture
+def mask_account_card_change_error() -> Any:
+    return "Счет 638291", "Maero 700879228", "", "Visa Platinun 700879606361", "xhch5478293", "827394657203746382"
 
 
-my_list_dict_sorted_2 = [
-    {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-    {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-    {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-    {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-]
-
-
-my_list_dict_sorted_date = [
-    {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-    {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-    {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-    {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-    {"id": 156272841, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-]
-
-
-"""Фикстуры и переменные для test_widget"""
-
-
-get_date_true = "2024-03-11T02:26:18.671407"
-
-
-get_date_false = "2024-03-11T02:26:18.671407"
+@pytest.fixture
+def get_date_change() -> Any:
+    return "2024-03-11T02:26:18.671407", "2024-03-11T02:2.671407", "2024-03-11T05332:26:18.671407", "", "fxtew1324"

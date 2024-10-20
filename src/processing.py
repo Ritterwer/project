@@ -12,7 +12,7 @@ def filter_by_state(my_list_dict: list[dict[str, Any]], state: str = "EXECUTED")
     """Функция принимает список словарей и значение для ключа и возвращает новый
     список содержащий только те словари у которых ключ содержит переданное значение"""
 
-    return [l for l in my_list_dict if l.get("state") == state]
+    return [i for i in my_list_dict if i.get("state") == state]
 
 
 print(filter_by_state(my_list_dict))
