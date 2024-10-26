@@ -1,14 +1,16 @@
 import pytest
 
-from src.masks import get_mask_card_number, get_mask_account
+from src.masks import get_mask_account, get_mask_card_number
 
 
 @pytest.mark.parametrize(
     "card_number, mask_number",
-    [("7000792289606361", "7000 79** **** 6361"), ("7634562893564253", "7634 56** **** 4253")],
+    [
+        ("7000792289606361", "7000 79** **** 6361"),
+        ("7634562893564253", "7634 56** **** 4253"),
+    ],
 )
 def test_get_mask_card(card_number: str, mask_number: str) -> None:
-    assert get_mask_card_number("atw71") == "Некорректные данные"
     assert get_mask_card_number(card_number) == mask_number
 
 

@@ -1,32 +1,42 @@
 from typing import Any
+
 import pytest
 
 
 @pytest.fixture
-def mask_card() -> Any:
-    return "7000792289606361", "7365410843013587", "7000F922896S6361", "7000792289606361627911", ""
+def card_data() -> list:
+    return [("7000792289606361", "7000 79** **** 6361"), ("7634562893564253", "7634 56** **** 4253")]
 
 
 @pytest.fixture
-def mask_account() -> Any:
-    return "73654108430135874305", "7000792289606361627911", "73654108430135874305DXK", "135"
+def account_data() -> list:
+    return [("73654108430135874305", "**4305"), ("73654108430135871856", "**1856")]
 
 
 @pytest.fixture
-def mask_account_card_change() -> Any:
-    return "Счет 63829169283549154926", "Visa Platinun 7008792289606361", "Счет 82739465720374638254"
+def sample_data() -> list[dict[str, Any]]:
+    return [
+        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
+        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
+        {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+    ]
 
 
 @pytest.fixture
-def mask_account_card_change_type() -> Any:
-    return "Счет 63829169283549154926", "Maestro 7008792289606361", "Счет 82739465720374638254"
+def unsorted_dates() -> list[dict[str, Any]]:
+    return [
+        {"id": 1, "date": "2018-10-14T08:21:33.419441"},
+        {"id": 2, "date": "2018-06-30T02:08:58.425572"},
+        {"id": 3, "date": "2019-07-03T18:35:29.512364"},
+        {"id": 4, "date": "2018-09-12T21:27:25.241689"},
+    ]
 
 
 @pytest.fixture
-def mask_account_card_change_error() -> Any:
-    return "Счет 638291", "Maero 700879228", "", "Visa Platinun 700879606361", "xhch5478293", "827394657203746382"
-
-
-@pytest.fixture
-def get_date_change() -> Any:
-    return "2024-03-11T02:26:18.671407", "2024-03-11T02:2.671407", "2024-03-11T05332:26:18.671407", "", "fxtew1324"
+def unsorted_invalid_dates() -> list[dict[str, Any]]:
+    return [
+        {"id": 1, "date": "Invalid date"},
+        {"id": 2, "date": "Another invalid date"},
+        {"id": 3, "date": "2019-07-03T18:35:29.512364"},
+    ]
