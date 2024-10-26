@@ -20,7 +20,6 @@ print(filter_by_state(my_list_dict))
 
 def sort_by_date(my_list_dict: list[dict[str, Any]], reverse_list: bool = True) -> list[dict[str, Any]]:
     """Функция принимает список и сортирует его по убыванию"""
-
     sorted_list = sorted(my_list_dict, key=lambda x: x["date"], reverse=reverse_list)
 
     return sorted_list
