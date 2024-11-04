@@ -4,7 +4,7 @@ from typing import Iterator
 def filter_by_currency(transactions: list, currency: str) -> Iterator:
     """Фильтрует транзакции по валюте и возвращает итератор для результатов."""
     for transaction in transactions:
-        if transaction.get("currency") == currency:
+        if transaction["operationAmount"]["currency"]["code"] == currency:
             yield transaction
 
 
@@ -24,5 +24,5 @@ def card_number_generator(start: int, stop: int) -> Iterator:
         while len(card_number) < 16:
             if start < 1000000000000000:
                 card_number = "0" + card_number
-        formatted_card_number = f"{card_number[0:4]} {card_number[4:8]} {card_number[8:12]} {card_number[12:16]}"
+        formatted_card_number = f"{card_number[0:4]}{card_number[4:8]}{card_number[8:12]}{card_number[12:16]}"
         yield formatted_card_number
