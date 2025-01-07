@@ -14,8 +14,6 @@ class TestCurrencyConversion(unittest.TestCase):
         self.assertEqual(result, 7500.0)
 
     def test_conversion_invalid(self):
-        transaction_info = {
-            "operationAmount": {"amount": None, "currency": {"code": None}}
-        }
+        transaction_info = {"operationAmount": {"amount": None, "currency": {"code": None}}}
         with self.assertRaises(ValueError):
             currency_conversion(transaction_info)
